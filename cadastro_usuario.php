@@ -57,6 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         </select>
         
         <button type="submit">Cadastrar</button>
+        <button type="reset">Cancelar</button>
     </form>
+    <a href="principal.php">Voltar</a>
 </body>
 </html>
