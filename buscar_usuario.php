@@ -19,12 +19,12 @@
             $sql = "SELECT * FROM usuario WHERE id_usuario = :busca ORDER BY nome ASC";
 
             $stmt = $pdo->prepare($sql);
-            $stmt->bind_param(":busca", $busca, PDO::PARAM_INT);
+            $stmt->bindParam(":busca", $busca, PDO::PARAM_INT);
         } else {
             $sql = "SELECT * FROM usuarios WHERE nome LIKE :busca_nome ORDER BY nome ASC";
 
             $stmt = $pdo->prepare($sql);
-            $stmt->bind_param(":busca_nome", "%$busca%", PDO::PARAM_STR);
+            $stmt->bindValue(":busca_nome", "$busca%", PDO::PARAM_STR);
         }
     } else {
         $sql = "SELECT * FROM usuario ORDER BY nome ASC";
@@ -52,7 +52,7 @@
     </form>
 
     <?php if (!empty($usuarios)) { ?>
-        <table>
+        <table border="1">
             <tr>
                 <th> ID </th>
                 <th> Nome </th>
@@ -79,6 +79,6 @@
         <p> Nenhum usuário encontrado. </p>
     <?php } ?>
 
-    <a href="principal.php"> Voltar </a>
+    <a href="principal.php"> Voltar  </a>
 </body>
 </html>
