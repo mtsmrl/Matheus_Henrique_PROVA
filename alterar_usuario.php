@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <form action="alterar_usuario.php" method="POST">
         <label for="busca_usuario">Digite o ID ou NOME do Usuário:</label>
         <input type="text" name="busca_usuario" required onkeyup= "BuscarSugestoes()">
-        <button type="submit">Buscar</button>
+     
 
         <div id="sugestoes"></div>
         <button type="submit">Buscar</button>
@@ -69,10 +69,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <option value="2" <?= $usuario['id_perfil'] == 2 ? 'select' : '' ?>>Secretária</option>
                 <option value="3" <?= $usuario['id_perfil'] == 3 ? 'select' : '' ?>>Almoxarife</option>
                 <option value="4" <?= $usuario['id_perfil'] == 4 ? 'select' : '' ?>>Cliente</option>
-
-
-
+    </select>
+    <?php if ($_SESSION['perfil'] == 1): ?>
+        <label for="nova_senha">Nova senha:</label>
+        <input type="password" id="nova_senha" name="nova_senha">
+        <?php endif; ?>
+        
+        <button type="submit">Alterar</button>
+        <button type="reset">Cancelar</button>
     </form>
+    <?php endif; ?>
+    <a href="principal.php">Voltar</a>
 
 </body>
 </html>
