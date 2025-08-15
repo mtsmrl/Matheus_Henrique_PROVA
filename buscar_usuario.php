@@ -43,12 +43,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Buscar Usuário </title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f0f0f0;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  .botao-acao {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .botao-acao:hover {
+    background-color: #ccc;
+  }
+
+  .botao-alterar {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+
+  .botao-excluir {
+    background-color: #e74c3c;
+    color: #fff;
+  }
+
+  .botao-voltar {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .botao-voltar:hover {
+    background-color: #2ecc71;
+  }
+</style>
 </head>
 <body>
     <h2> Lista de Usuários </h2>
     <form action="buscar_usuario.php" method="POST">
         <label for="busca"> Digite o ID ou NOME do Usuário: </label>
         <input type="text" name="busca" id="busca" required>
+        
     </form>
 
     <?php if (!empty($usuarios)) { ?>
