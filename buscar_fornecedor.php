@@ -146,7 +146,7 @@
 </style>
 </head>
 <body>
-    <h2> Lista de Fornecedores </h2>
+    
     <nav>
         <ul class="menu">
             <?php foreach($opcoes_menu as $categoria => $arquivos) { ?>
@@ -164,6 +164,7 @@
             <?php } ?>
         </ul>
     </nav>
+    <h2> Lista de Fornecedores </h2>
     
     <form action="buscar_fornecedor.php" method="POST">
         <label for="busca"> Digite o ID ou NOME do Fornecedor: </label>
