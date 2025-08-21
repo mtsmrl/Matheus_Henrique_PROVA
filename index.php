@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD']== "POST") {
 }
     }else{
         // LOGIN INVALIDO
-        echo "<script>alert('E-mail ou senha inválidos!');window.location.href = 'login.php';
+        echo "<script>alert('E-mail ou senha inválidos!');window.location.href = 'index.php';
         </script>";
     } 
 

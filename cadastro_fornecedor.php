@@ -10,20 +10,22 @@ if ($_SESSION['perfil']!=1) {
 }
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $nome = $_POST['nome'];
+    $endereco = $_POST['endereco'];
+    $telefone = $_POST['telefone'];
     $email = $_POST['email'];
-    $senha = password_hash($_POST['senha'],PASSWORD_DEFAULT);
-    $id_perfil = $_POST['id_perfil'];
+    $contato = $_POST['contato'];
 
-    $sql = "INSERT INTO usuario (nome, email, senha, id_perfil) VALUES (:nome, :email, :senha, :id_perfil)";
+    $sql = "INSERT INTO fornecedor (nome_fornecedor, endereco, telefone, email, contato) VALUES (:nome_fornecedor, :endereco, :telefone, :email, :contato)";
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':nome_fornecedor', $nome);
+    $stmt->bindParam(':endereco', $endereco);
+    $stmt->bindParam(':telefone', $telefone);
     $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':senha', $senha);
-    $stmt->bindParam(':id_perfil', $id_perfil);
+    $stmt->bindParam(':contato', $contato);
     if ($stmt->execute()) {
-        echo "<script>alert('Usuário cadastrado com sucesso!');</script>";
+        echo "<script>alert('Fornecedor cadastrado com sucesso!');</script>";
     } else {
-        echo "<script>alert('Erro ao cadastrar usuário!');</script>";
+        echo "<script>alert('Erro ao cadastrar Fornecedor!');</script>";
     }
 }
 ?>
@@ -37,24 +39,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Cadastrar Usuário</h2>
-    <form action="cadastro_usuario.php" method="POST">
-        <label for="nome">Nome:</label>
+    <h2>Cadastrar Fornecedor</h2>
+    <form action="cadastro_fornecedor.php" method="POST">
+        <label for="nome">Nome do Fornecedor:</label>
         <input type="text" id="nome" name="nome" required>
-        
+        <br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" required>
+        <br>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" required>
+        <br>
+
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" required>
-        
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
-        
-        <label for="id_perfil">Perfil:</label>
-        <select id="id_perfil" name="id_perfil" required>
-        <option value="1">Administrador</option>
-        <option value="2">Secretária</option>
-        <option value="3">Almoxarife</option>
-        <option value="4">Cliente</option>
-        </select>
+        <br>
+
+        <label for="contato">Nome para contato:</label>
+        <input type="text" id="contato" name="contato" required>
+        <br>
         
         <button type="submit">Cadastrar</button>
         <button type="reset">Cancelar</button>
