@@ -15,6 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $email = $_POST['email'];
     $contato = $_POST['contato'];
 
+    // VALIDAÇÃO PARA NOME
+    if (preg_match('/[^a-zA-Z\s]/', $nome)) {
+        echo "<script>alert('Nome não pode conter simbolos!'); window.location.href='cadastro_fornecedor.php';</script>";
+      exit();
+    }
+
     $sql = "INSERT INTO fornecedor (nome_fornecedor, endereco, telefone, email, contato) VALUES (:nome_fornecedor, :endereco, :telefone, :email, :contato)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':nome_fornecedor', $nome);
@@ -35,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuários</title>
+    <title>Cadastro de Fornecedores</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -50,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         <br>
 
         <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" name="telefone" required>
+        <input type="tel" id="telefone" name="telefone" required>
         <br>
 
         <label for="email">E-mail:</label>
@@ -60,11 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         <label for="contato">Nome para contato:</label>
         <input type="text" id="contato" name="contato" required>
         <br>
-        
+         
         <button type="submit">Cadastrar</button>
         <button type="reset">Cancelar</button>
     </form>
     <a href="principal.php">Voltar</a>
+
+      <!-- Máscaras de entrada -->
+  <script src="https://cdn.jsdelivr.net/npm/inputmask/dist/inputmask.min.js"></script>
+  <script>
+    Inputmask({ mask: "(99) 99999-9999" }).mask("#telefone");
+  </script>
 
 </body>
 </html>

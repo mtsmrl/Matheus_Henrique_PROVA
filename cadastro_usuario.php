@@ -14,11 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $senha = password_hash($_POST['senha'],PASSWORD_DEFAULT);
     $id_perfil = $_POST['id_perfil'];
 
-    // VALIDAÇÃO PARA NOME
-    if (preg_match('/[^a-zA-Z\s]/', $nome)) {
-        echo "<script>alert('Nome não pode conter símbolos ou números!');</script>";
-        exit;
-    }
+   // VALIDAÇÃO PARA NOME
+   if (preg_match('/[^a-zA-Z\s]/', $nome)) {
+    echo "<script>alert('Nome não pode conter simbolos!'); window.location.href='cadastro_usuario.php';</script>";
+  exit();
+}
 
     $sql = "INSERT INTO usuario (nome, email, senha, id_perfil) VALUES (:nome, :email, :senha, :id_perfil)";
     $stmt = $pdo->prepare($sql);

@@ -176,6 +176,7 @@
             <tr>
                 <th> ID </th>
                 <th> Nome</th>
+                <th> Telefone </th>
                 <th> Endereço </th>
                 <th> E-mail </th>
                 <th> Contato </th>
@@ -186,6 +187,7 @@
             <tr>
                 <td> <?= htmlspecialchars($fornecedor['id_fornecedor']) ?> </td>
                 <td> <?= htmlspecialchars($fornecedor['nome_fornecedor']) ?> </td>
+                <td> <?= htmlspecialchars($fornecedor['telefone']) ?> </td>
                 <td> <?= htmlspecialchars($fornecedor['endereco']) ?> </td>
                 <td> <?= htmlspecialchars($fornecedor['email']) ?> </td>
                 <td> <?= htmlspecialchars($fornecedor['contato']) ?> </td>

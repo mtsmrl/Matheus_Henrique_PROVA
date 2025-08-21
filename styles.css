@@ -16,6 +16,8 @@ input, button {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
+
+
 }
 
 header {
@@ -139,10 +141,8 @@ label {
     margin-bottom: 5px; /* Espaço entre label e campo */
 }
 
-/* Ajusta os campos de entrada */
-input[type="text"],
-input[type="email"],
-input[type="password"],
+
+
 select {
     width: 80%; /* Ocupa toda a largura do formulário */
     padding: 8px;
