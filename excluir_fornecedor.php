@@ -185,6 +185,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <p>Nenhum fornecedor encontrado</p>
     <?php endif; ?>
     
+    <br>
     <a href="principal.php">Voltar</a>
 
     <br>

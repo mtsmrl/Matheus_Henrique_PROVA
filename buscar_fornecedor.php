@@ -204,6 +204,8 @@
         <p> Nenhum fornecedor encontrado. </p>
     <?php } ?>
 
+    <br>
+
     <a href="principal.php"> Voltar  </a>
 
     <br>
