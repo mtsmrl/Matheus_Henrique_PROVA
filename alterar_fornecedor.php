@@ -85,8 +85,7 @@ $opcoes_menu = $permissoes["$id_perfil"];
     <script src="scripts.js"></script>
 </head>
 <body>
-    <h2>Alterar Fornecedor</h2>
-    <nav>
+<nav>
         <ul class="menu">
             <?php foreach($opcoes_menu as $categoria => $arquivos) { ?>
                 <li class="dropdown">
@@ -103,6 +102,8 @@ $opcoes_menu = $permissoes["$id_perfil"];
             <?php } ?>
         </ul>
     </nav>
+    <h2>Alterar Fornecedor</h2>
+    
     <form action="alterar_fornecedor.php" method="POST">
         <label for="busca_fornecedor">Digite o ID ou NOME do Fornecedor:</label>
         <input type="text" name="busca_fornecedor" required onkeyup= "BuscarSugestoes()">
@@ -153,7 +154,7 @@ $opcoes_menu = $permissoes["$id_perfil"];
     <br>
     <br>
     <br>
-    
+
 
     <adress>
         <center>
