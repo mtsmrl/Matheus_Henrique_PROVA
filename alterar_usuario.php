@@ -139,5 +139,18 @@ $opcoes_menu = $permissoes["$id_perfil"];
     <?php endif; ?>
     <a href="principal.php">Voltar</a>
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+
+    <adress>
+        <center>
+            Matheus Henrique Coelho Amaral / Técnico em Desenvolvimento de Sistemas / 2025
+    </center>
+    </adress>
+    
 </body>
 </html>
